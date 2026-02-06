@@ -27,8 +27,6 @@
       background: var(--bg);
       overflow:hidden;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-
-      min-height: 100svh;
     }
 
     /* tiny heart wallpaper */
@@ -47,10 +45,11 @@
 
     .center{
       position:relative;
-      width: min(720px, 92vw);
-      min-height: 100svh;      /* was height:min(560px, 84vh) */
+      width:min(720px, 92vw);
+      height:min(560px, 84vh);
       margin:0 auto;
-      padding: 16px 0;         /* prevent top/bottom clipping on short screens */
+      top:50%;
+      transform:translateY(-50%);
       display:flex;
       align-items:center;
       justify-content:center;
@@ -387,27 +386,6 @@
       opacity: .35;
     }
 
-    @media (max-width: 420px){
-      .card{ padding: 12px; }
-
-      .pixel-window{ padding: 10px; }
-      .pixel-titlebar{ height: 40px; font-size: 10px; }
-
-      .pixel-body{ min-height: 0; }      /* remove forced tall body on phones */
-
-      .gif-frame{
-        width: min(320px, 92vw);
-        height: min(220px, 30svh);       /* avoid overflowing on iPhone */
-      }
-
-      .gif-frame.final{
-        width: min(300px, 92vw);
-        height: min(210px, 28svh);
-      }
-
-      .px-action{ font-size: 10px; padding: 9px 12px; }
-    }
-
     /* Screen shake */
     @keyframes px-shake{
       0%{ transform: translate(0,0) }
@@ -525,7 +503,7 @@
         <div class="pixel-body">
           <!-- ASK PHASE: first gif -->
           <div id="phaseAsk">
-            <p class="question">Will you go out with me for a meal?</p>
+            <p class="question">Will you go out for a meal with me?</p>
 
             <div class="gif-frame" aria-label="Cute gif (phase 1)">
               <!-- Replace with your phase-1 gif -->
@@ -555,7 +533,7 @@
             </div>
 
             <!-- Edit this line to your own date plan -->
-            <p class="final-note">Sunday 7pm see you dont flake on me !</p>
+            <p class="final-note">SUNDAY 7PM Dont be late !!</p>
           </div>
         </div>
       </div>
