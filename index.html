@@ -27,6 +27,8 @@
       background: var(--bg);
       overflow:hidden;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+
+      min-height: 100svh;
     }
 
     /* tiny heart wallpaper */
@@ -45,11 +47,10 @@
 
     .center{
       position:relative;
-      width:min(720px, 92vw);
-      height:min(560px, 84vh);
+      width: min(720px, 92vw);
+      min-height: 100svh;      /* was height:min(560px, 84vh) */
       margin:0 auto;
-      top:50%;
-      transform:translateY(-50%);
+      padding: 16px 0;         /* prevent top/bottom clipping on short screens */
       display:flex;
       align-items:center;
       justify-content:center;
@@ -384,6 +385,27 @@
       pointer-events:none;
       background: radial-gradient(circle at 50% 40%, rgba(255,255,255,.08), rgba(0,0,0,.12));
       opacity: .35;
+    }
+
+    @media (max-width: 420px){
+      .card{ padding: 12px; }
+
+      .pixel-window{ padding: 10px; }
+      .pixel-titlebar{ height: 40px; font-size: 10px; }
+
+      .pixel-body{ min-height: 0; }      /* remove forced tall body on phones */
+
+      .gif-frame{
+        width: min(320px, 92vw);
+        height: min(220px, 30svh);       /* avoid overflowing on iPhone */
+      }
+
+      .gif-frame.final{
+        width: min(300px, 92vw);
+        height: min(210px, 28svh);
+      }
+
+      .px-action{ font-size: 10px; padding: 9px 12px; }
     }
 
     /* Screen shake */
