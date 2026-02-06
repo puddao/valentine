@@ -492,7 +492,21 @@
       *{ transition:none !important; animation:none !important; }
     }
 
-    
+    @media (max-width: 420px){
+      .gif-frame,
+      .gif-frame.final{
+        width: 92vw;
+        height: auto;              /* 🔥 let GIF decide height */
+        aspect-ratio: 1 / 1;       /* keeps frame square */
+        max-height: 45svh;         /* prevents overflow */
+      }
+
+      .gif-frame img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;       /* already correct, but enforced */
+      }
+    }
   </style>
 </head>
 
@@ -516,11 +530,6 @@
         <div class="pixel-titlebar">
           <div class="title-left">
             <div>hi hehe<span class="title-cursor" aria-hidden="true"></span></div>
-            <div class="title-hearts" aria-hidden="true">
-              <div class="px-heart"></div>
-              <div class="px-heart"></div>
-              <div class="px-heart"></div>
-            </div>
           </div>
           <div class="title-right">
             <button id="closeBtn" class="px-close" aria-label="Close window">✕</button>
@@ -530,7 +539,7 @@
         <div class="pixel-body">
           <!-- ASK PHASE: first gif -->
           <div id="phaseAsk">
-            <p class="question">Will you be my Valentine?</p>
+            <p class="question">Will you go out with me for a meal?</p>
 
             <div class="gif-frame" aria-label="Cute gif (phase 1)">
               <!-- Replace with your phase-1 gif -->
@@ -560,7 +569,7 @@
             </div>
 
             <!-- Edit this line to your own date plan -->
-            <p class="final-note">Valentine Date: Steak Restaurant at 7pm. Dress Fancy!</p>
+            <p class="final-note">Sunday 7pm see you dont flake on me !</p>
           </div>
         </div>
       </div>
